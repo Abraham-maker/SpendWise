@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import AppNavigator from "./navigation/AppNavigator";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -42,10 +42,14 @@ export default function App() {
   }
 
   return (
-    <View onLayout={onLayoutRootView}>
-      <Text style={{ fontFamily: "Poppins" }}>
-        Open up App.js to start working on your app!
-      </Text>
+    <View onLayout={onLayoutRootView} style={styles.containerAllApp}>
+      <AppNavigator />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  containerAllApp: {
+    flex: 1,
+  },
+});
